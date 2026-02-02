@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Deepslate Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+    --primary: #1a0026;
+    --secondary: #2d003d;
+    --accent: #a259ff;
+    --text: #f3f3f3;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: radial-gradient(ellipse at top left, var(--primary) 60%, var(--secondary) 100%);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.moon {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+}
+.moon img {
+    width: 50px;
+}
+
+header {
+    text-align: center;
+    margin-top: 120px;
+}
+
+h1 {
+    font-size: 2.6rem;
+    color: var(--accent);
+    text-shadow: 0 0 20px #a259ff88;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.card {
+    background: linear-gradient(135deg, #2d003d 60%, #1a0026 100%);
+    border-radius: 1.4rem;
+    box-shadow: 0 0 30px #a259ff44;
+    padding: 2rem;
+    width: 260px;
+    text-align: center;
+}
+
+.rates {
+    margin-top: 0.8rem;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+button {
+    margin-top: 1.4rem;
+    padding: 0.7rem 1.6rem;
+    background: var(--accent);
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<a href="home.html" class="moon">
+    <img src="assets/moonlight-noback.png" alt="home">
+</a>
+
+<div class="stars"></div>
+
+<header>
+    <h1>Deepslate Calculator</h1>
+</header>
+
+<div class="cards">
+    <div class="card">
+        <img src="assets/deepslate.png" width="70" height="70">
+        <div class="rates">$2 / stack · $54 / shulker</div>
+        <button onclick="location.href='view/deepslate.html'">Open</button>
+    </div>
+</div>
+
+<script>
+const stars = document.querySelector('.stars');
+for (let i = 0; i < 80; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.top = Math.random() * 100 + 'vh';
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.animationDuration = (2 + Math.random() * 2) + 's';
+    stars.appendChild(s);
+}
+</script>
+
+</body>
+</html>
